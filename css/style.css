@@ -691,7 +691,6 @@ i:before {
 }
 
 .team_people_text ul li {
-  width: calc(100% / 2);
   float: left;
   margin-bottom: 15px;
 }
@@ -727,7 +726,7 @@ i:before {
 }
 
 .team_people_text ul li:nth-child(even) {
-  padding-left: 22px;
+  padding-left: 0px;
 }
 
 .team_people_text ul li:last-child {
@@ -1475,7 +1474,7 @@ i:before {
 }
 
 .touch_details {
-  margin-left: 90px;
+  margin-left: 0px;
 }
 
 .touch_details p {
@@ -1499,6 +1498,10 @@ i:before {
   color: #0b1033;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+}
+
+.touch_details_p {
+  margin-right: 90px;
 }
 
 /* End Get In Touch Area css
