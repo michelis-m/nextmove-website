@@ -31,6 +31,33 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <!-- Email handle -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init('adQF0X7WEzZq2WBW8');
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // generate a five digit number for the contact_number variable
+                    //this.contact_number.value = Math.random() * 100000 | 0;
+                    // these IDs from the previous steps
+                    emailjs.sendForm('service_ebo92cp', 'template_bivo2p9', this)
+                        .then(function() {
+                            console.log('SUCCESS!');
+                            alert("Message sent successfully! We'll get back to you within 48 hours.")
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            alert("Message failed! You can also contact us directly at: michael@nextmove.ventures")
+                        });
+                });
+            }
+        </script>
     </head>
     <body>
         
@@ -303,11 +330,11 @@
                                 <h6>Say hello</h6>
                                 <h2>Ready for the next move? Let's speak!</h2>
                             </div>
-                            <p>We'll get back to you in 48 hours. We offer direct no commission exits for SaaS businesses.</p>
+                            <p>We'll get back to you within 48 hours. We offer direct no commission exits for SaaS businesses.</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <form class="contact_us_form row" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="contact_us_form row" id="contact-form" novalidate="novalidate">
                             <div class="form-group col-lg-6">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                             </div>
@@ -321,7 +348,7 @@
                                 <textarea class="form-control" name="message" id="message" rows="1" placeholder="Message"></textarea>
                             </div>
                             <div class="form-group col-lg-12">
-                                <button type="submit" value="submit" class="btn submit_btn form-control">Send</button>
+                                <button type="submit" value="Send" class="btn submit_btn form-control">Send</button>
                             </div>
                         </form>
                     </div>
